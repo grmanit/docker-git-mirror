@@ -4,7 +4,7 @@ rm -rf $MIRRORS
 mkdir -p $MIRRORS
 
 cd $MIRRORS
-python /opt/scripts/init_mirrors.py
+python /opt/scripts/init_mirrors.py $MIRROR_CONFIG
 
 while :
 do

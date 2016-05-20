@@ -1,8 +1,8 @@
 FROM python:latest
 
-ENV MIRRORS=/var/mirrors SLEEP=5m
+ENV MIRRORS=/var/mirrors/data MIRROR_CONFIG=/var/mirrors/config.txt SLEEP=5m
 
-VOLUME $MIRRORS
+VOLUME /var/mirrors
 COPY scripts/* /opt/scripts/
 
 CMD ["bash", "/opt/scripts/startup.sh"]
