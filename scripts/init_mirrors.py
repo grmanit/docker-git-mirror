@@ -1,11 +1,13 @@
 import subprocess
 import sys
-import os
+from os import path
 
-print "Executing python script in " + os.getcwd()
+base_dir = sys.argv[1]
 
-for line in open(sys.argv[1]):
+print "Executing python script in " + base_dir
+
+for line in open(sys.argv[2]):
     if line and not line.isspace() and line[0] != '#': # last check is a simple way to comment out lines
         [name, source, destination] = line.strip().split("|")
-        subprocess.Popen(["git", "clone", "--mirror", source, name])
-        subprocess.Popen(["git", "remote", "set-url", "--push", "origin", destination], cwd=name)
+        subprocess.Popen(["git", "clone", "--mirror", source, name], cwd=base_dir)
+        subprocess.Popen(["git", "remote", "set-url", "--push", "origin", destination], cwd=path.join(base_dir, name))

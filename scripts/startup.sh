@@ -3,8 +3,7 @@
 rm -rf $MIRRORS
 mkdir -p $MIRRORS
 
-cd $MIRRORS
-python /opt/scripts/init_mirrors.py $MIRROR_CONFIG
+python /opt/scripts/init_mirrors.py $MIRRORS $MIRROR_CONFIG
 
 while :
 do
