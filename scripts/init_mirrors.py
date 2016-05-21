@@ -2,7 +2,8 @@ import subprocess
 import sys
 import os
 
-print "Executing python script in " + os.getcwd()
+print "Executing python script in:"
+print os.getcwd()
 
 for line in open(sys.argv[1]):
     if line and not line.isspace() and line[0] != '#': # last check is a simple way to comment out lines
