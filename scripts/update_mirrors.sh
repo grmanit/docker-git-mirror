@@ -4,16 +4,15 @@ cd $MIRRORS
 pwd
 date
 
-for D in `find . -type d -maxdepth 1`
+for D in `find . -maxdepth 1 -type d -name *`
 do
     echo "Updating $D ..."
 
+    cd $MIRRORS # reset directory
     cd $D
     git fetch -p origin
     git push --mirror
-    cd ..
 done
 
-pwd
 date
 echo "... Updates completed"
