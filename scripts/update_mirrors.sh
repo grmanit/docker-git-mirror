@@ -4,7 +4,7 @@ cd $MIRRORS
 pwd
 date
 
-for D in `find . -maxdepth 1 -type d -name *`
+for D in `find . -maxdepth 1 ! -path . -type d`
 do
     echo "Updating $D ..."
 
